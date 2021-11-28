@@ -13,6 +13,7 @@ img_back1 = "galaxy.jpg" # фон игры
 img_back2 = "галактика.jpg"
 
 img_bullet = "bullet.png" # пуля
+img_bullet2 = "bullet2.png" # пуля2
 img_hero = "rocket.png" # герой
 img_enemy = "ufo.png" # враг
 img_enemy2 = "ufo_2.png" # враг 2
@@ -52,8 +53,13 @@ class Player(GameSprite):
            self.rect.x += self.speed
    # метод "выстрел" (используем место игрока, чтобы создать там пулю)
    def fire(self):
-       bullet = Bullet(img_bullet, self.rect.centerx, self.rect.top, 15, 20, -15)
-       bullets.add(bullet)
+    if random.randint(0, 1) == 1:
+        bullet = Bullet(img_bullet, self.rect.centerx, self.rect.top, 15, 20, -15)
+        bullets.add(bullet)
+    else:
+        bullet = Bullet(img_bullet2, self.rect.centerx, self.rect.top, 15, 20, -15)
+        bullets.add(bullet)
+    #bullets.add(bullet)
 # класс спрайта-врага    
 class Enemy(GameSprite):
    # движение врага
